@@ -1,6 +1,7 @@
 # 記帳程式
 # v0.1 紀錄消費項目跟金額
 # v0.2 建立檔案寫入
+# v0.3 增加欄位名稱、檔案改為csv、編碼改為utf-8
 
 products = []
 while True:
@@ -16,7 +17,8 @@ for p in products:
 	print('消費項目', p[0], '消費金額', p[1])
 
 # 把檔案存下
-with open('products.txt', 'w') as f:
+with open('products.csv', 'w', encoding='big5') as f:
+	f.write('消費項目,消費金額\n')
 	for p in products:
 		f.write(p[0] + ',' + p[1] + '\n')    # 在最後面加上\n表示每一行為一筆資料
 print('資料已寫入')
